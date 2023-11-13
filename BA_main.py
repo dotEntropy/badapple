@@ -8,11 +8,10 @@ import pygame
 
 class Main:
     def __init__(self) -> None:
-        self.TOTAL_FRAMES = 6569
         self.FPS = 30
         self.FRAME_SKIP = 1 
+        self.TOTAL_FRAMES = 6569
         self.OUTPUT_DETAILS = f"[client] fps:{self.FPS} skip:{self.FRAME_SKIP}"
-        self.frame_index = 1 
         self.clock = pygame.time.Clock()
         self.initialize_music()
 
@@ -30,11 +29,10 @@ class Main:
 
     def run(self) -> None:
         pygame.mixer.music.play()
-        while self.frame_index <= self.TOTAL_FRAMES:
+        for frame_index in range(1, self.TOTAL_FRAMES + 1, self.FRAME_SKIP):
             self.clock.tick(self.FPS)
-            frame = self.load_frame(self.frame_index)
-            print(f"{frame}{self.OUTPUT_DETAILS} frame:{self.frame_index}/{self.TOTAL_FRAMES}", end='')
-            self.frame_index += self.FRAME_SKIP
+            frame = self.load_frame(frame_index)
+            print(f"{frame}{self.OUTPUT_DETAILS} frame:{frame_index}/{self.TOTAL_FRAMES}", end='')
     
 
 if __name__ == '__main__':
