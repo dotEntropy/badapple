@@ -1,5 +1,6 @@
 import sys, os
-pygame_path = os.path.join(os.path.dirname(__file__), 'pygame')
+file_path = os.path.dirname(__file__)
+pygame_path = os.path.join(file_path, 'pygame')
 sys.path.insert(0, pygame_path)
 
 import pygame
@@ -17,12 +18,14 @@ class Main:
 
     @staticmethod
     def initialize_music() -> None:
+        music_path = os.path.join(file_path, 'res', 'BA.wav')
         pygame.mixer.init()
-        pygame.mixer.music.load('res\\BA.wav')
+        pygame.mixer.music.load(music_path)
         pygame.mixer.music.set_volume(0.1)
     
     def load_frame(self, frame_index: int) -> str:
-        with open(f'res\\BA{frame_index}.txt', 'r') as file:
+        frame_path = os.path.join(file_path, 'res', f'BA{frame_index}.txt')
+        with open(frame_path) as file:
             return file.read()
 
     def run(self) -> None:
@@ -43,5 +46,3 @@ if __name__ == '__main__':
         pass
     pygame.mixer.music.stop()
     pygame.quit()
-
-
