@@ -1,3 +1,3 @@
 # badapple
-#### Play in command prompt.
-#### Do not resize command prompt window or it will go out of sync with the music!
+#### Run it on the default python terminal; using an IDE's terminal might cause it to flicker or go out of sync.
+#### Do not resize the window while it's playing or the frames will go out of sync with the music.
